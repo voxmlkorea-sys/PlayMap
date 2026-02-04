@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- viewport-fit=cover: Handle iPhone Notch / user-scalable=no: Prevent zooming -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -10,7 +9,6 @@
     
     <title>PlayMap</title>
     
-    <!-- Tailwind CSS via CDN for simplicity in deployment without complex build pipeline -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -19,56 +17,37 @@
       crossorigin=""
     />
     <style>
-      /* Custom scrollbar for webkit */
-      ::-webkit-scrollbar {
-        width: 6px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
-        border-radius: 3px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #94a3b8;
-      }
-      .leaflet-container {
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-      }
-      
-      /* Safe Area Insets for Mobile (iPhone X+) */
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #f1f1f1; }
+      ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+      .leaflet-container { width: 100%; height: 100%; z-index: 0; }
       body {
         padding-top: env(safe-area-inset-top);
         padding-bottom: env(safe-area-inset-bottom);
-        /* Prevent bounce scroll on iOS */
         overscroll-behavior-y: none;
       }
     </style>
 
-</script>
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.39.0",
-    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
-    "react-leaflet": "https://esm.sh/react-leaflet@^5.0.0",
-    "leaflet": "https://esm.sh/leaflet@^1.9.4",
-    "vite": "https://esm.sh/vite@^7.3.1",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.3",
-    "vite-plugin-pwa": "https://esm.sh/vite-plugin-pwa@^1.2.0"
-  }
-}
-</script>
-</head>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@^19.2.4",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+        "react/": "https://esm.sh/react@^19.2.4/",
+        "@google/genai": "https://esm.sh/@google/genai@^1.39.0",
+        "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+        "react-leaflet": "https://esm.sh/react-leaflet@^5.0.0",
+        "leaflet": "https://esm.sh/leaflet@^1.9.4",
+        "vite": "https://esm.sh/vite@^7.3.1",
+        "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.3",
+        "vite-plugin-pwa": "https://esm.sh/vite-plugin-pwa@^1.2.0"
+      }
+    }
+    </script>
+  </head>
   <body class="bg-slate-50 text-slate-900 font-sans antialiased overflow-hidden fixed w-full h-full">
     <div id="root" class="h-full w-full"></div>
-    <!-- CHANGED: Use relative path ./index.tsx to prevent Rollup resolution errors on Vercel -->
     <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>
