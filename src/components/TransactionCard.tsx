@@ -1,4 +1,3 @@
-
 import React, { useMemo, useState } from 'react';
 import { Transaction, Offer } from '../types';
 import { ShoppingBag, Coffee, Utensils, Fuel, Store, Globe, Plane, Info, Image as ImageIcon, FileText, Lock, Globe2, Share2, Check, Users, Sparkles, Monitor, Cloud } from 'lucide-react';
@@ -81,7 +80,7 @@ const TransactionCard: React.FC<Props> = ({ transaction, offers, onClick, onCate
       onClick={onClick}
       className={`
         relative p-4 rounded-xl bg-white shadow-sm transition-all duration-200 cursor-pointer hover:shadow-md group mb-3
-        ${matchedOffer ? 'border-2 border-emerald-500 bg-emerald-50/30 ring-1 ring-emerald-100' : 'border border-gray-100'}
+        ${matchedOffer ? 'border-2 border-green-500 bg-green-50/30 ring-1 ring-green-100' : 'border border-gray-100'}
       `}
     >
       {/* Social Header (Friend's post) */}
@@ -99,7 +98,7 @@ const TransactionCard: React.FC<Props> = ({ transaction, offers, onClick, onCate
         <div className="flex items-center gap-3">
           <div className={`
             p-2.5 rounded-full shrink-0 relative
-            ${matchedOffer ? 'bg-emerald-100 text-emerald-700' : (isOnline ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600')}
+            ${matchedOffer ? 'bg-green-100 text-green-700' : (isOnline ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600')}
           `}>
             {getIcon(transaction.category)}
             {/* Small Flag indicator on icon for foreign tx */}
@@ -138,9 +137,9 @@ const TransactionCard: React.FC<Props> = ({ transaction, offers, onClick, onCate
           <div className="text-right shrink-0 ml-2 flex flex-col items-end">
              {/* Stacked Badges to prevent overlap */}
              {matchedOffer && (
-                <div className="bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm mb-1 whitespace-nowrap flex items-center gap-1 animate-in zoom-in duration-300">
+                <div className="bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm mb-1 whitespace-nowrap flex items-center gap-1 animate-in zoom-in duration-300">
                    <Sparkles className="w-3 h-3 fill-current" />
-                   {isOnline ? 'Online Cashback' : 'Cashback Pending'}
+                   Cashback Pending
                 </div>
              )}
              {isForeign && !matchedOffer && (
@@ -164,7 +163,7 @@ const TransactionCard: React.FC<Props> = ({ transaction, offers, onClick, onCate
             )}
 
             {matchedOffer && (
-               <p className="text-xs text-emerald-600 font-bold mt-0.5">
+               <p className="text-xs text-green-600 font-bold mt-0.5">
                  +${(transaction.amount * matchedOffer.cashbackRate).toFixed(2)}
                </p>
             )}
@@ -221,4 +220,3 @@ const TransactionCard: React.FC<Props> = ({ transaction, offers, onClick, onCate
 };
 
 export default TransactionCard;
-    
