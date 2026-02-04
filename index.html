@@ -47,6 +47,8 @@
         overscroll-behavior-y: none;
       }
     </style>
+
+</script>
 <script type="importmap">
 {
   "imports": {
@@ -66,7 +68,7 @@
 </head>
   <body class="bg-slate-50 text-slate-900 font-sans antialiased overflow-hidden fixed w-full h-full">
     <div id="root" class="h-full w-full"></div>
-    <!-- Point to the local entry file for Vite to bundle -->
-    <script type="module" src="index.tsx"></script>
+    <!-- CHANGED: Use relative path ./index.tsx to prevent Rollup resolution errors on Vercel -->
+    <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>
