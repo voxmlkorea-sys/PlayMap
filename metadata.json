@@ -1,0 +1,7 @@
+{
+  "name": "PlayMap",
+  "description": "A map-based personal finance app visualizing spending flow. Features automated Kard CLO reward tracking and AI-powered spending insights.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
